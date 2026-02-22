@@ -109,22 +109,55 @@
       return;
     }
 
-    // Submit
+    // Submit via hidden iframe + form (bypasses CORS entirely)
     setLoading(true);
 
     try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          timestamp: new Date().toISOString(),
-        }),
+      await new Promise((resolve, reject) => {
+        const iframeName = '_submit_frame_' + Date.now();
+        const iframe = document.createElement('iframe');
+        iframe.name = iframeName;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        const tempForm = document.createElement('form');
+        tempForm.method = 'POST';
+        tempForm.action = GOOGLE_SCRIPT_URL;
+        tempForm.target = iframeName;
+        tempForm.style.display = 'none';
+
+        const emailField = document.createElement('input');
+        emailField.name = 'email';
+        emailField.value = email;
+        tempForm.appendChild(emailField);
+
+        document.body.appendChild(tempForm);
+
+        iframe.addEventListener('load', () => {
+          // Clean up
+          document.body.removeChild(iframe);
+          document.body.removeChild(tempForm);
+          resolve();
+        });
+
+        iframe.addEventListener('error', () => {
+          document.body.removeChild(iframe);
+          document.body.removeChild(tempForm);
+          reject(new Error('Submission failed'));
+        });
+
+        // Timeout after 10 seconds
+        setTimeout(() => {
+          if (document.body.contains(iframe)) {
+            document.body.removeChild(iframe);
+            document.body.removeChild(tempForm);
+            resolve(); // Treat timeout as success (iframe may have loaded)
+          }
+        }, 10000);
+
+        tempForm.submit();
       });
 
-      // With no-cors mode, we can't read the response,
-      // but if no error was thrown, we treat it as success.
       recordSubmission();
       showMessage('תודה על ההרשמה!', 'success');
       emailInput.value = '';
