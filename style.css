@@ -177,6 +177,11 @@ body {
 
 .input-group input[type="email"]::placeholder {
   color: #a08577;
+  transition: opacity 0.3s ease;
+}
+
+.input-group input[type="email"]:focus::placeholder {
+  opacity: 0;
 }
 
 .input-group button {
@@ -275,7 +280,7 @@ body {
 }
 
 .focus-hint {
-  margin-top: 0.75rem;
+  margin-top: 0.4rem;
   font-family: 'Heebo', sans-serif;
   font-size: 1.25rem;
   font-weight: 300;
@@ -319,36 +324,165 @@ body {
   }
 
   .illustration {
-    max-width: 280px;
-    margin-bottom: 1.5rem;
+    display: none;
   }
 
   .eink-frame {
-    padding: 2rem 1.25rem;
+    width: 100%;
+    height: 500px;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    background-position: center 75%;
   }
 
   .hebrew-time {
-    font-size: 1.5rem;
+    position: absolute;
+    rotate:1.5deg;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 70%;
+    line-height: 1.6;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+  }
+
+  .focus-hint {
+    font-size: 1rem;
   }
 
   .input-group {
-    flex-direction: column-reverse;
-    border-radius: 6px;
+    border-radius: 50px;
+    margin-top:15px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
   }
 
   .input-group input[type="email"] {
     text-align: center;
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
   }
 
   .input-group button {
-    border-radius: 0 0 6px 6px;
-    padding: 0.85rem;
+    border-radius: 50px;
+    margin: 4px;
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* === Tablet === */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .page {
+    padding: 1.5rem;
+  }
+
+  .illustration {
+    display: none;
+  }
+
+  .eink-frame {
+    height: 300px;
+    background-position: center 70%;
+  }
+
+  .hebrew-time {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    rotate:1deg;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 50%;
+    line-height: 1.6;
   }
 
   .tagline {
-    font-size: 1.25rem;
+    font-size: 1.6rem;
+  }
+
+  .signup {
+    max-width: 380px;
+  }
+
+  .input-group {
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+  }
+
+  .input-group button {
+    border-radius: 50px;
+    margin: 4px;
   }
 }
+
+/* === Laptop === */
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .page {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .illustration {
+    max-width: 70%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .eink-frame {
+    width: 70%;
+    height: 350px;
+  }
+
+  .hebrew-time {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    rotate: 1deg;
+    transform: translate(-50%, -50%) perspective(600px) rotateY(5deg) rotateX(3deg);
+    transform-origin: center center;
+    font-size: 1.8rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 45%;
+    line-height: 1.6;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .signup {
+    max-width: 380px;
+    margin-top: auto;
+    padding-bottom: 2rem;
+  }
+
+  .input-group {
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .input-group button {
+    border-radius: 50px;
+    margin: 4px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .page {
     max-width:100%;
@@ -362,7 +496,7 @@ body {
   }
   
   .eink-frame {
-    width:60%;
+    width:800px;
     height:400px;
   }
 
@@ -373,14 +507,17 @@ body {
     rotate:1deg;
     transform: translate(-50%, -50%) perspective(600px) rotateY(5deg) rotateX(3deg);
     transform-origin: center center;
-    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
-    white-space: nowrap;
-    max-width: 80%;
+    font-size: 2rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 40%;
+    line-height: 1.6;
   }
 
   .signup {
     max-width: 400px;
-    margin: 0 auto 2rem;
+    margin-top: auto;
+    padding-bottom: 2rem;
   }
 
   .input-group {
