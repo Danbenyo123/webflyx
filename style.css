@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 2rem 1.5rem;
 }
 
@@ -119,8 +119,6 @@ body {
 }
 
 .tagline {
-  margin-top: auto;
-  margin-bottom: 1rem;
   font-family: 'Heebo', sans-serif;
   font-size: 2rem;
   font-weight: 300;
