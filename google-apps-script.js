@@ -23,8 +23,8 @@ const ALLOWED_ORIGINS = [
 
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
-    const email = data.email;
+    // Form POST sends data as URL-encoded, available via e.parameter
+    const email = e.parameter.email;
 
     // Validate email server-side
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

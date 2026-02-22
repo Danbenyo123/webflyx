@@ -12,7 +12,7 @@
   //   3. Deploy → New deployment → Web app
   //   4. Set "Execute as" = Me, "Who has access" = Anyone
   //   5. Copy the deployment URL and paste it below
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxz6qYXk-3EbonHCj4_BEWZCnalq-DET8yJk-uBK49dh1JwjTJK7WiUFn9pgUAvByRO/exec';
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_45UISys4VS3M32woxn6f2YVl-oh3ZqNUE5X8wLm0Kk6-xOYc6Ux445OZKMdh77Sy/exec';
 
   // Rate limiting: minimum seconds between submissions
   const RATE_LIMIT_SECONDS = 30;
