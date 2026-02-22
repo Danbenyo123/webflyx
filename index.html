@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebFlyx — E-Ink Clock</title>
+  <title>ZMAN</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <!-- Logo -->
     <header class="header">
       <div class="logo">
-        <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+        <img src="./assets/Final_Logo-removebg.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
         <span id="logo-fallback" class="logo-fallback">WebFlyx</span>
       </div>
     </header>
@@ -28,44 +28,45 @@
           שָׁלוֹשׁ וְאַרְבָּעִים דַּקּוֹת אַחֲרֵי שְׁתַּיִם
         </p>
       </div>
-      <p class="tagline">הַזְּמַן, בְּמִלִּים</p>
+      <h3 class="tagline">אֶצְלְכֶם, בְּקָרוֹב.</h3>
     </main>
 
     <!-- Email Signup -->
     <section class="signup">
-      <p class="signup-lead">הירשמו לעדכונים</p>
       <form id="signup-form" class="signup-form" novalidate>
         <!-- Honeypot field for bot prevention — hidden from real users -->
         <div class="hp-field" aria-hidden="true">
           <input type="text" name="website" id="hp" tabindex="-1" autocomplete="off">
         </div>
         <div class="input-group">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="your@email.com"
-            required
-            autocomplete="email"
-            dir="ltr"
-          >
           <button type="submit" id="submit-btn">
-            <span class="btn-text">שליחה</span>
+            <span class="btn-text">שלח</span>
             <span class="btn-loading" hidden>
               <span class="spinner"></span>
             </span>
           </button>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="אימייל"
+            required
+            autocomplete="email"
+            dir="rtl"
+          >
         </div>
         <p class="form-message" id="form-message"></p>
       </form>
+      <p class="signup-subtext">הודיעו לי כְּשֶׁמּוּכָן.</p>
     </section>
 
     <footer class="footer">
-      <p>&copy; 2026 WebFlyx</p>
+      <p>&copy;2026</p>
     </footer>
 
   </div>
 
   <script src="script.js"></script>
+  <script src="hebrew-clock.js"></script>
 </body>
 </html>
