@@ -12,7 +12,7 @@
   //   3. Deploy → New deployment → Web app
   //   4. Set "Execute as" = Me, "Who has access" = Anyone
   //   5. Copy the deployment URL and paste it below
-  const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxz6qYXk-3EbonHCj4_BEWZCnalq-DET8yJk-uBK49dh1JwjTJK7WiUFn9pgUAvByRO/exec';
 
   // Rate limiting: minimum seconds between submissions
   const RATE_LIMIT_SECONDS = 30;
@@ -106,13 +106,6 @@
     // Rate limit
     if (isRateLimited()) {
       showMessage('נא להמתין לפני שליחה נוספת', 'error');
-      return;
-    }
-
-    // Check if Google Script URL is configured
-    if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      showMessage('תודה! (טופס עדיין לא מחובר)', 'success');
-      emailInput.value = '';
       return;
     }
 
