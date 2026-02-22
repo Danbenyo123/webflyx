@@ -15,8 +15,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #fafaf8;
-  color: #1a1a1a;
+  background: #f8f3eb;
+  color: #2c2218;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -53,7 +53,7 @@ body {
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: 0.08em;
-  color: #1a1a1a;
+  color: #2c2218;
   text-transform: uppercase;
 }
 
@@ -70,13 +70,13 @@ body {
 
 .eink-frame {
   width: 100%;
-  background: #ffffff;
-  border: 1px solid #e0ddd8;
+  background: #fffbf5;
+  border: 1px solid #e0d5c5;
   border-radius: 12px;
   padding: 3rem 2rem;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    0 2px 8px rgba(120, 80, 30, 0.06),
+    inset 0 0 0 1px rgba(255, 250, 240, 0.6);
   text-align: center;
   position: relative;
 }
@@ -102,7 +102,7 @@ body {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.8;
-  color: #1a1a1a;
+  color: #2c2218;
   direction: rtl;
   letter-spacing: 0.01em;
 }
@@ -111,7 +111,7 @@ body {
   margin-top: 1.5rem;
   font-family: 'David Libre', serif;
   font-size: 1rem;
-  color: #8a8680;
+  color: #9a8a74;
   letter-spacing: 0.04em;
 }
 
@@ -125,7 +125,7 @@ body {
 .signup-lead {
   font-family: 'David Libre', serif;
   font-size: 1.1rem;
-  color: #4a4640;
+  color: #5a4a38;
   margin-bottom: 1rem;
 }
 
@@ -146,15 +146,15 @@ body {
   display: flex;
   gap: 0;
   width: 100%;
-  border: 1px solid #d4d0cb;
+  border: 1px solid #d4c8b5;
   border-radius: 8px;
   overflow: hidden;
   transition: border-color 0.2s ease;
-  background: #ffffff;
+  background: #fffbf5;
 }
 
 .input-group:focus-within {
-  border-color: #1a1a1a;
+  border-color: #8b6914;
 }
 
 .input-group input[type="email"] {
@@ -164,21 +164,21 @@ body {
   outline: none;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
-  color: #1a1a1a;
+  color: #2c2218;
   background: transparent;
   direction: ltr;
   text-align: left;
 }
 
 .input-group input[type="email"]::placeholder {
-  color: #b0aca6;
+  color: #b5a48e;
 }
 
 .input-group button {
   padding: 0.85rem 1.5rem;
   border: none;
-  background: #1a1a1a;
-  color: #fafaf8;
+  background: #6b4c1e;
+  color: #faf5ed;
   font-family: 'David Libre', serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -191,15 +191,15 @@ body {
 }
 
 .input-group button:hover {
-  background: #333;
+  background: #7d5a24;
 }
 
 .input-group button:active {
-  background: #000;
+  background: #543a12;
 }
 
 .input-group button:disabled {
-  background: #999;
+  background: #a89478;
   cursor: not-allowed;
 }
 
@@ -227,11 +227,11 @@ body {
 }
 
 .form-message.success {
-  color: #2d7a3a;
+  color: #4a7a2d;
 }
 
 .form-message.error {
-  color: #c0392b;
+  color: #b5412e;
 }
 
 /* === Footer === */
@@ -243,7 +243,7 @@ body {
 
 .footer p {
   font-size: 0.75rem;
-  color: #b0aca6;
+  color: #b5a48e;
   letter-spacing: 0.04em;
 }
 
@@ -267,7 +267,7 @@ body {
   }
 
   .input-group input[type="email"] {
-    border-bottom: 1px solid #e8e5e0;
+    border-bottom: 1px solid #e0d5c5;
     text-align: center;
   }
 
