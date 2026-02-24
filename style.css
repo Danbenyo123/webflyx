@@ -477,7 +477,12 @@ body[data-mode="night"] .eink-frame {
     border-radius: 10px;
   }
 
-
+  .wrap-text {
+    height:30%;
+    width:50%;
+    top:47%;
+    left:10%;
+  }
   .tagline {
     font-size: 1.4rem;
   }
@@ -522,6 +527,12 @@ body[data-mode="night"] .eink-frame {
     background-position: center 75%;
   }
 
+  .wrap-text{
+    height:30%;
+    width:50%;
+    top:47%;
+    left:10%;
+  }
   .eink-frame::before {
     border-radius: 12px;
   }
