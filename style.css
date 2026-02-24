@@ -428,7 +428,7 @@ body[data-mode="night"] .eink-frame {
   background-image: url('./assets/night.png');
 }
 
-.wrap-text {
+body[data-mode="night"] .wrap-text {
   position: absolute;
   top: 37%;
   left: 25%;
@@ -441,13 +441,12 @@ body[data-mode="night"] .eink-frame {
   transform-origin: center bottom;
 }
 
-.hebrew-time {
+body[data-mode="night"] .hebrew-time {
   max-width: 80%;
   max-height: 90%;
   line-height: 1.6;
   white-space: normal;
   text-align: center;
-
   font-size: 1.5rem;
 }
 /* === Responsive === */
@@ -479,7 +478,7 @@ body[data-mode="night"] .eink-frame {
     border-radius: 10px;
   }
 
-  .wrap-text {
+  body[data-mode="night"] .wrap-text {
     height:30%;
     width:50%;
     top:47%;
@@ -529,7 +528,7 @@ body[data-mode="night"] .eink-frame {
     background-position: center 75%;
   }
 
-  .wrap-text{
+  body[data-mode="night"] .wrap-text {
     height:30%;
     width:50%;
     top:47%;
@@ -575,10 +574,10 @@ body[data-mode="night"] .eink-frame {
     background-position: center 70%;
   }
 
-  .wrap-text {
+  body[data-mode="night"] .wrap-text {
     top:43%;
   }
-  .hebrew-time {
+  body[data-mode="night"] .hebrew-time {
     font-size: 1.1rem;
   }
 
@@ -610,14 +609,14 @@ body[data-mode="night"] .eink-frame {
     height: 350px;
   }
 
-  .wrap-text {
+  body[data-mode="night"] .wrap-text {
     width: 30%;
     height: 30%;
     top: 45%;
     left: 27%;
   }
 
-  .hebrew-time {
+  body[data-mode="night"] .hebrew-time {
     font-size: 1.3rem;
   }
   .tagline {
