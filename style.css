@@ -23,6 +23,8 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
   display: flex;
   justify-content: center;
 }
