@@ -9,6 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+<script>
+  (function() {
+    var h = new Date().getHours();
+    document.documentElement.style.visibility = 'hidden';
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.setAttribute('data-mode', (h >= 6 && h < 17) ? 'day' : 'night');
+      document.documentElement.style.visibility = '';
+    });
+  })();
+</script>
 <body>
   <div class="page">
 
