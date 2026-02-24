@@ -296,8 +296,11 @@ body {
 .form-message {
   margin-top: 0.75rem;
   font-size: 0.85rem;
-  min-height: 1.2em;
   transition: opacity 0.3s ease;
+}
+
+.form-message:empty {
+  display: none;
 }
 
 .form-message.success {
