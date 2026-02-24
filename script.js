@@ -158,6 +158,13 @@
         tempForm.submit();
       });
 
+      // Send to MyMarketing newsletter via serverless proxy (fire and forget)
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      }).catch(() => {}); // Don't block on newsletter failure
+
       recordSubmission();
       emailInput.value = '';
       showSuccessOverlay();
