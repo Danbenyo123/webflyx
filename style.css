@@ -130,6 +130,8 @@ body {
   color: #2a2a2a;
   direction: rtl;
   letter-spacing: 0.01em;
+  transform: perspective(800px) rotateX(8deg);
+  transform-origin: center bottom;
 }
 
 .tagline {
@@ -573,7 +575,12 @@ body[data-mode="night"] .eink-frame {
     background-position: center 70%;
   }
 
-
+  .wrap-text {
+    top:43%;
+  }
+  .hebrew-time {
+    font-size: 1.1rem;
+  }
 
   .tagline {
     font-size: 1.6rem;
@@ -603,8 +610,16 @@ body[data-mode="night"] .eink-frame {
     height: 350px;
   }
 
+  .wrap-text {
+    width: 30%;
+    height: 30%;
+    top: 45%;
+    left: 27%;
+  }
 
-
+  .hebrew-time {
+    font-size: 1.3rem;
+  }
   .tagline {
     font-size: 1.8rem;
     margin-bottom: 2rem;
