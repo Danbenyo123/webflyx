@@ -159,8 +159,8 @@
       });
 
       recordSubmission();
-      showMessage('תודה על ההרשמה!', 'success');
       emailInput.value = '';
+      showSuccessOverlay();
 
     } catch (err) {
       showMessage('שגיאה בשליחה, נא לנסות שוב', 'error');
@@ -168,6 +168,25 @@
       setLoading(false);
     }
   });
+
+  /** Show success overlay with animated checkmark */
+  function showSuccessOverlay() {
+    const overlay = document.getElementById('success-overlay');
+    overlay.hidden = false;
+
+    // Dismiss on click after animations finish
+    setTimeout(() => {
+      overlay.addEventListener('click', () => {
+        overlay.style.transition = 'opacity 0.4s ease';
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+          overlay.hidden = true;
+          overlay.style.opacity = '';
+          overlay.style.transition = '';
+        }, 400);
+      }, { once: true });
+    }, 1800);
+  }
 
   // Clear error messages on input
   emailInput.addEventListener('input', () => {

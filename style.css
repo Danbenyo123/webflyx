@@ -293,14 +293,6 @@ body {
   font-size: 1.25rem;
   font-weight: 300;
   color: #5c3d2e;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.signup-form:focus-within .focus-hint {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .signup-subtext {
@@ -323,6 +315,103 @@ body {
   font-size: 0.75rem;
   color: #c0c0c0;
   letter-spacing: 0.04em;
+}
+
+/* === Success Overlay === */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(239, 232, 222, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  animation: overlayFadeIn 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.success-overlay[hidden] {
+  display: none;
+}
+
+.success-content {
+  text-align: center;
+  animation: contentSlideUp 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
+}
+
+.success-check {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+}
+
+.checkmark-svg {
+  width: 80px;
+  height: 80px;
+}
+
+.checkmark-circle {
+  stroke: #8a7568;
+  stroke-width: 2;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: circleStroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+.checkmark-path {
+  stroke: #8a7568;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkStroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.9s forwards;
+}
+
+.success-title {
+  font-family: 'Heebo', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #5c3d2e;
+  margin-bottom: 0.5rem;
+}
+
+.success-message {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #8a7568;
+  opacity: 0;
+  animation: textFadeIn 0.5s ease 1.2s forwards;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contentSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes circleStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes checkStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes textFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* === Responsive === */
@@ -381,6 +470,7 @@ body {
 
   .input-group input[type="email"] {
     text-align: center;
+    direction: ltr;
     padding: 0.75rem 0.75rem;
     font-size: 0.9rem;
   }
@@ -441,6 +531,7 @@ body {
 
   .input-group input[type="email"] {
     text-align: center;
+    direction: ltr;
     padding: 0.875rem 1rem;
     font-size: 0.95rem;
   }
