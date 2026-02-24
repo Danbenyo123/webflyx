@@ -194,4 +194,11 @@
       clearMessage();
     }
   });
+
+  // Scroll input into view when keyboard opens on mobile
+  emailInput.addEventListener('focus', () => {
+    setTimeout(() => {
+      emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+  });
 })();
