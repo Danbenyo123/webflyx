@@ -487,11 +487,6 @@ body {
     min-width: 60px;
   }
 
-  .page:has(.signup-form:focus-within) {
-    justify-content: flex-start;
-    gap: 0.5rem;
-  }
-
   .page:has(.signup-form:focus-within) .eink-frame {
     height: 180px;
     margin-bottom: 10px;
@@ -558,11 +553,6 @@ body {
     direction: ltr;
     padding: 0.875rem 1rem;
     font-size: 0.95rem;
-  }
-
-  .page:has(.signup-form:focus-within) {
-    justify-content: flex-start;
-    gap: 0.5rem;
   }
 
   .page:has(.signup-form:focus-within) .eink-frame {
