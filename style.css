@@ -127,7 +127,7 @@ body {
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.8;
-  color: #4a4a4a;
+  color: #2a2a2a;
   direction: rtl;
   letter-spacing: 0.01em;
 }
@@ -428,14 +428,15 @@ body[data-mode="night"] .eink-frame {
 
 .wrap-text {
   position: absolute;
-  top:37%;
-  left:25%;
+  top: 37%;
+  left: 25%;
   width: 35%;
   height: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  transform: perspective(800px) rotateX(8deg);
+  transform-origin: center bottom;
 }
 
 .hebrew-time {
