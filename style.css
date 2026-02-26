@@ -702,6 +702,7 @@ body[data-mode="night"] .hebrew-time {
   .signup {
     max-width: 400px;
     margin-top: auto;
+    margin-bottom: 20px;
   }
 
   .input-group {
