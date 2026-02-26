@@ -15,9 +15,9 @@ html {
 
 body {
   font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #efe8de;
+  background-color: #e0cbb8;
   background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.65'/%3E%3C/svg%3E");
   background-blend-mode: overlay;
   color: #5c3d2e;
   min-height: 100vh;
@@ -51,7 +51,8 @@ body {
 }
 
 .logo-img {
-  height: 100px;
+  height: 50px;
+  margin-top: 20px;
   width: auto;
   object-fit: contain;
 }
@@ -473,7 +474,7 @@ body[data-mode="night"] .hebrew-time {
   }
 
   .logo-img {
-    height: 70px;
+    height: 50px;
   }
 
   .eink-frame {
