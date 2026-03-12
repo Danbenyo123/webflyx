@@ -149,10 +149,12 @@ body {
 
 .tagline {
   font-family: 'Heebo', sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.9rem, 4.5vw, 2rem);
   font-weight: 500;
   color: #5c3d2e;
   letter-spacing: 0.02em;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* === Signup Section === */
