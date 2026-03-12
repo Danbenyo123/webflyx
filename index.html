@@ -14,10 +14,24 @@
 <script>
   (function() {
     var h = new Date().getHours();
+    var isDay = h >= 6 && h < 17;
+    // Preload the correct frame image
+    var link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = isDay ? './assets/day.png' : './assets/night.png';
+    link.fetchPriority = 'high';
+    document.head.appendChild(link);
+
+    // Hide page until frame image loads
     document.documentElement.style.visibility = 'hidden';
+    var frameImg = new Image();
+    frameImg.src = link.href;
+    function show() { document.documentElement.style.visibility = ''; }
+    frameImg.onload = frameImg.onerror = show;
+    setTimeout(show, 3000); // fallback: show after 3s max
     document.addEventListener('DOMContentLoaded', function() {
-      document.body.setAttribute('data-mode', (h >= 6 && h < 17) ? 'day' : 'night');
-      document.documentElement.style.visibility = '';
+      document.body.setAttribute('data-mode', isDay ? 'day' : 'night');
     });
   })();
 </script>
