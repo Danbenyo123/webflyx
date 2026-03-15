@@ -158,12 +158,18 @@
         tempForm.submit();
       });
 
-      // Send to MyMarketing newsletter via serverless proxy (fire and forget)
+    // Generate event ID for Meta deduplication
+      const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+      // Send to MyMarketing + Meta CAPI in one call
       fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      }).catch(() => {}); // Don't block on newsletter failure
+        body: JSON.stringify({ email, eventId })
+      }).catch(() => {});
+
+      // Browser-side pixel (deduplicated with CAPI via eventId)
+      fbq('track', 'Lead', {}, { eventID: eventId });
 
       recordSubmission();
       emailInput.value = '';
@@ -180,33 +186,6 @@
   function showSuccessOverlay() {
     const overlay = document.getElementById('success-overlay');
     overlay.hidden = false;
-    // Generate unique event ID for deduplication
-    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
-    // Browser-side pixel
-    fbq('track', 'Lead', {}, { eventID: eventId });
-
-    // Send same event ID to your server for CAPI
-    fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: emailInput.value.trim(),
-            eventId: eventId
-        })
-    }).catch(() => {});
-    // Dismiss on click after animations finish
-    setTimeout(() => {
-      overlay.addEventListener('click', () => {
-        overlay.style.transition = 'opacity 0.4s ease';
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-          overlay.hidden = true;
-          overlay.style.opacity = '';
-          overlay.style.transition = '';
-        }, 400);
-      }, { once: true });
-    }, 1800);
   }
 
   // Clear error messages on input
