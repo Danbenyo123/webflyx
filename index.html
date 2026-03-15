@@ -47,7 +47,7 @@ src="https://www.facebook.com/tr?id=738018122591014&ev=PageView
     frameImg.src = link.href;
     function show() { document.documentElement.style.visibility = ''; }
     frameImg.onload = frameImg.onerror = show;
-    setTimeout(show, 3000); // fallback: show after 3s max
+    setTimeout(show, 1000); // fallback: show after 3s max
     document.addEventListener('DOMContentLoaded', function() {
       document.body.setAttribute('data-mode', isDay ? 'day' : 'night');
     });
