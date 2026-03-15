@@ -172,14 +172,17 @@
       const fbc = getFbc();
 
       // Send to MyMarketing + Meta CAPI in one call
-      fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, eventId, fbc })
-      }).catch(() => {});
-
-      // Browser-side pixel (deduplicated with CAPI via eventId)
-      fbq('track', 'Lead', {}, { eventID: eventId });
+      try {
+          const res = await fetch('/api/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, eventId, fbc })
+          });
+          const data = await res.json();
+          if (data.success) {
+              fbq('track', 'Lead', {}, { eventID: eventId });
+          }
+      } catch (e) {}
 
       recordSubmission();
       emailInput.value = '';
