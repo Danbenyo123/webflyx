@@ -180,8 +180,21 @@
   function showSuccessOverlay() {
     const overlay = document.getElementById('success-overlay');
     overlay.hidden = false;
-    fbq('track', 'Lead');
+    // Generate unique event ID for deduplication
+    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
+    // Browser-side pixel
+    fbq('track', 'Lead', {}, { eventID: eventId });
+
+    // Send same event ID to your server for CAPI
+    fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            email: emailInput.value.trim(),
+            eventId: eventId
+        })
+    }).catch(() => {});
     // Dismiss on click after animations finish
     setTimeout(() => {
       overlay.addEventListener('click', () => {

@@ -12,13 +12,15 @@
 //   5. Copy the deployment URL into script.js (GOOGLE_SCRIPT_URL)
 // =====================================================================
 
-const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+const SHEET_ID = '1fNINOfc9bWWv03NQiTJrbYbKCcVamvUFlZbbHUUcoK8';
 const SHEET_NAME = 'Signups';
 
 // Allowed origins — add your Vercel domain here
 const ALLOWED_ORIGINS = [
   'https://your-project.vercel.app',
   'http://localhost:3000',
+  'zman-clock.com',
+  'zman-ofpx32xfn-danbenyo123s-projects.vercel.app'
 ];
 
 function doPost(e) {
