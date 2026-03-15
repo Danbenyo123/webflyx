@@ -32,6 +32,15 @@
   // Helpers
   // =====================================================================
 
+  function getFbc() {
+    const match = document.cookie.match(/(?:^|;\s*)_fbc=([^;]*)/);
+    if (match) return match[1];
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get('fbclid');
+    if (fbclid) return 'fb.1.' + Date.now() + '.' + fbclid;
+    return null;
+  }
+
   /** Basic email validation regex */
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -160,12 +169,13 @@
 
     // Generate event ID for Meta deduplication
       const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      const fbc = getFbc();
 
       // Send to MyMarketing + Meta CAPI in one call
       fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, eventId })
+        body: JSON.stringify({ email, eventId, fbc })
       }).catch(() => {});
 
       // Browser-side pixel (deduplicated with CAPI via eventId)

@@ -12,7 +12,7 @@ module.exports = async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { email, eventId } = req.body || {};
+    const { email, eventId, fbc } = req.body || {};
 
     if (!email || typeof email !== 'string') {
         return res.status(400).json({ error: 'Email is required' });
@@ -60,7 +60,8 @@ module.exports = async function handler(req, res) {
                             event_id: eventId,
                             action_source: 'website',
                             user_data: {
-                                em: [sha256(email.toLowerCase().trim())]
+                                em: [sha256(email.toLowerCase().trim())],
+                                ...(fbc && { fbc: fbc})
                             }
                         }],
                         access_token: META_ACCESS_TOKEN
