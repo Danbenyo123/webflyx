@@ -180,6 +180,7 @@
   function showSuccessOverlay() {
     const overlay = document.getElementById('success-overlay');
     overlay.hidden = false;
+    fbq('track', 'Lead');
 
     // Dismiss on click after animations finish
     setTimeout(() => {
