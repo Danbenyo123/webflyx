@@ -48,7 +48,7 @@ module.exports = async function handler(req, res) {
     // 2. Send Meta CAPI event (don't fail signup if this fails)
     if (eventId) {
         try {
-            await fetch(
+            const capiRes = await fetch(
                 `https://graph.facebook.com/v19.0/${PIXEL_ID}/events`,
                 {
                     method: 'POST',
@@ -61,13 +61,15 @@ module.exports = async function handler(req, res) {
                             action_source: 'website',
                             user_data: {
                                 em: [sha256(email.toLowerCase().trim())],
-                                ...(fbc && { fbc: fbc})
+                                ...(fbc && { fbc: fbc })
                             }
                         }],
                         access_token: META_ACCESS_TOKEN
                     })
                 }
             );
+            const capiBody = await capiRes.json();
+            console.log('CAPI response:', capiRes.status, JSON.stringify(capiBody));
         } catch (e) {
             console.error('CAPI error:', e);
         }
