@@ -88,7 +88,7 @@ body {
 
 .eink-frame {
   width: 100%;
-  background-image: url('./assets/day.png');
+  background-image: url('./assets/day.webp');
   background-size: cover;
   background-position: center 80%;
   border: none;
@@ -283,7 +283,7 @@ body {
 
 .eink-frame {
   opacity: 0;
-  animation: fadeUp 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s forwards;
+  animation: fadeUp 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s forwards;
 }
 
 .tagline {
@@ -444,7 +444,7 @@ body {
 
 /* === Night Mode === */
 body[data-mode="night"] .eink-frame {
-  background-image: url('./assets/night.png');
+  background-image: url('./assets/night.webp');
 }
 
 body[data-mode="night"] .wrap-text {

@@ -4,31 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-visual">
   <title>ZMAN | זמן</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&family=Heebo:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;700&family=Heebo:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
   <link rel="icon" type="image/ico" href="./assets/z.ico">
   <meta name="facebook-domain-verification" content="kwkkdrtetxn1iz2wkbq1fez9z9h6qx" />
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
- fbq('init', '738018122591014'); 
-fbq('track', 'PageView');
-</script>
-<noscript>
- <img height="1" width="1" 
-src="https://www.facebook.com/tr?id=738018122591014&ev=PageView
-&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <script>
   (function() {
@@ -38,17 +19,11 @@ src="https://www.facebook.com/tr?id=738018122591014&ev=PageView
     var link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'image';
-    link.href = isDay ? './assets/day.png' : './assets/night.png';
+    link.type = 'image/webp';
+    link.href = isDay ? './assets/day.webp' : './assets/night.webp';
     link.fetchPriority = 'high';
     document.head.appendChild(link);
 
-    // Hide page until frame image loads
-    document.documentElement.style.visibility = 'hidden';
-    var frameImg = new Image();
-    frameImg.src = link.href;
-    function show() { document.documentElement.style.visibility = ''; }
-    frameImg.onload = frameImg.onerror = show;
-    setTimeout(show, 1000); // fallback: show after 3s max
     document.addEventListener('DOMContentLoaded', function() {
       document.body.setAttribute('data-mode', isDay ? 'day' : 'night');
     });
@@ -60,7 +35,7 @@ src="https://www.facebook.com/tr?id=738018122591014&ev=PageView
     <!-- Logo -->
     <header class="header">
       <div class="logo">
-        <img src="./assets/Logo copy.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+        <img src="./assets/logo.webp" alt="Logo" class="logo-img" width="723" height="170" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
         <span id="logo-fallback" class="logo-fallback">ZMAN | זְמַן </span>
       </div>
     </header>
@@ -126,5 +101,24 @@ src="https://www.facebook.com/tr?id=738018122591014&ev=PageView
 
   <script src="script.js"></script>
   <script src="hebrew-clock.js"></script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '738018122591014');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=738018122591014&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </body>
 </html>
