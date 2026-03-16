@@ -6,29 +6,53 @@
   <title>ZMAN | זמן</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{font-size:16px;-webkit-font-smoothing:antialiased}
+    body{font-family:'Heebo',-apple-system,BlinkMacSystemFont,sans-serif;background-color:#fdf8f2;color:#5c3d2e;min-height:100vh;min-height:100svh;overflow-x:hidden;display:flex;justify-content:center}
+    .page{width:100%;max-width:640px;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:2rem 1.5rem}
+    .header{width:100%;display:flex;justify-content:center}
+    .logo-img{height:50px;margin-top:20px;width:auto;object-fit:contain}
+    .banner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:0}
+    .eink-frame{width:100%;background-image:url('./assets/day.webp');background-size:cover;background-position:center 80%;border:none;border-radius:14px;padding:3rem 2rem;box-shadow:inset 0 0 0 6px rgba(235,220,195,.8),0 2px 8px rgba(0,0,0,.1);text-align:center;position:relative}
+    .wrap-text{position:absolute;top:15%;left:25%;width:50%;height:50%;display:flex;justify-content:center;align-items:center}
+    .hebrew-time{font-family:'David Libre','Times New Roman',serif;padding:5px;font-size:2rem;font-weight:400;line-height:1.8;color:#2a2a2a;direction:rtl;letter-spacing:.01em;transform:perspective(800px) rotateX(8deg);transform-origin:center bottom;max-width:80%;max-height:90%;rotate:1deg}
+    .tagline{font-family:'Heebo',sans-serif;font-size:clamp(.9rem,4.5vw,2rem);font-weight:500;color:#5c3d2e;letter-spacing:.02em;text-align:center;white-space:nowrap}
+    .signup{width:100%;text-align:center}
+    .input-group{display:flex;flex-direction:row-reverse;gap:0;width:100%;border:1px solid #e8e8e8;border-radius:50px;overflow:hidden;background:#fff}
+    .input-group input[type="email"]{flex:1;padding:.875rem 1.25rem;border:none;outline:none;font-family:'Heebo',sans-serif;font-size:1rem;color:#5c3d2e;background:transparent;direction:rtl;text-align:right}
+    .input-group button{padding:.75rem 1.5rem;border:none;background:#8a7568;color:#fff;font-family:'Heebo',sans-serif;font-size:.9rem;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;min-width:70px;border-radius:50px;margin:4px}
+    .hp-field{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+    .focus-hint{margin-top:.4rem;font-family:'Heebo',sans-serif;font-size:1.25rem;font-weight:300;color:#5c3d2e}
+    .success-overlay{position:fixed;inset:0;background:rgba(239,232,222,.95);display:flex;align-items:center;justify-content:center;z-index:100}
+    .success-overlay[hidden]{display:none}
+    .logo-fallback{display:none}
+    .form-message:empty{display:none}
+  </style>
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;700&family=Heebo:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=David+Libre:wght@400;700&family=Heebo:wght@300;400;500&display=swap"></noscript>
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
   <link rel="icon" type="image/ico" href="./assets/z.ico">
   <meta name="facebook-domain-verification" content="kwkkdrtetxn1iz2wkbq1fez9z9h6qx" />
+  <script>
+    (function() {
+      var h = new Date().getHours();
+      var isDay = h >= 6 && h < 17;
+      var link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.type = 'image/webp';
+      link.href = isDay ? './assets/day.webp' : './assets/night.webp';
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.setAttribute('data-mode', isDay ? 'day' : 'night');
+      });
+    })();
+  </script>
 </head>
-<script>
-  (function() {
-    var h = new Date().getHours();
-    var isDay = h >= 6 && h < 17;
-    // Preload the correct frame image
-    var link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.type = 'image/webp';
-    link.href = isDay ? './assets/day.webp' : './assets/night.webp';
-    link.fetchPriority = 'high';
-    document.head.appendChild(link);
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.body.setAttribute('data-mode', isDay ? 'day' : 'night');
-    });
-  })();
-</script>
 <body>
   <div class="page">
 
@@ -99,8 +123,8 @@
 
   </div>
 
-  <script src="script.js"></script>
-  <script src="hebrew-clock.js"></script>
+  <script src="script.js" defer></script>
+  <script src="hebrew-clock.js" defer></script>
 
   <!-- Meta Pixel Code -->
   <script>
