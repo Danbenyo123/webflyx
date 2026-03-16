@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zman-clock.com/sitemap.xml
